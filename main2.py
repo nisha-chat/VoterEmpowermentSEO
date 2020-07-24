@@ -1,8 +1,8 @@
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
+from web import scrollWebsite
 import random
 import time
-from web import scrollWebsite
 
 
 chrome_options = webdriver.ChromeOptions()
@@ -29,7 +29,7 @@ while True:
 			driver.find_element_by_xpath('//a[starts-with(@href,"https://empowervoters.us/")]').click()
 			page = count + 1
 			print("#" + str(sessions) + ": 'voter empowerment volunteer' - Page ", page)
-			scrollWebsite()
+			scrollWebsite(driver)
 			sessions += 1
 			time.sleep(5)
 			loop = False
@@ -38,5 +38,3 @@ while True:
 		    driver.find_element_by_link_text("Next").click()
 		    time.sleep(2)
 		    count +=1
-
-

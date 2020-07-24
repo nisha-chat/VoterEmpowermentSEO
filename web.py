@@ -2,17 +2,9 @@ from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
 import random
 import time
-def scrollWebsite():
-	times = [5,6,7,8,9,10,11,12,13,14,15]
 
-	chrome_options = webdriver.ChromeOptions()
-	chrome_options.add_argument('--no-sandbox')
-	chrome_options.add_argument('--window-size=1420,1080')
-	chrome_options.add_argument('--headless')
-	chrome_options.add_argument('--disable-gpu')
-	driver = webdriver.Chrome(chrome_options=chrome_options)
-
-	driver.get('https://empowervoters.us/')
+def scrollWebsite(driver):
+	times = [5,6,7,8,9,10,11,12,13,14,15, 16, 17, 18, 19, 20, 21, 22, 23, 24]
 	driver.find_element_by_xpath("//a[text()='About']").click()
 	print(driver.current_url)
 	time.sleep(random.choice(times))

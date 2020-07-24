@@ -1,9 +1,8 @@
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
+from web import scrollWebsite
 import random
 import time
-from web import scrollWebsite
-
 
 chrome_options = webdriver.ChromeOptions()
 chrome_options.add_argument('--no-sandbox')
@@ -23,13 +22,12 @@ while True:
 	search_field.send_keys("voter empowerment")
 	search_field.submit()
 	driver.implicitly_wait(3)
-	print("URL: " + driver.current_url)
 	while loop:
 		try:
 			driver.find_element_by_xpath('//a[starts-with(@href,"https://empowervoters.us/")]').click()
 			page = count + 1
 			print("#" + str(sessions) + ": 'voter empowerment' - Page ", page)
-			scrollWebsite()
+			scrollWebsite(driver)
 			sessions += 1
 			time.sleep(5)
 			loop = False
@@ -38,5 +36,6 @@ while True:
 		    driver.find_element_by_link_text("Next").click()
 		    time.sleep(2)
 		    count +=1
+
 
 
