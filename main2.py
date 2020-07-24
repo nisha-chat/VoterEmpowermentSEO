@@ -20,7 +20,7 @@ while True:
 	driver.get('http://www.google.com')
 	driver.implicitly_wait(10)
 	search_field = driver.find_element_by_name("q")
-	search_field.send_keys("voter empowerment")
+	search_field.send_keys("voter empowerment volunteer")
 	search_field.submit()
 	driver.implicitly_wait(3)
 	print("URL: " + driver.current_url)
@@ -28,7 +28,7 @@ while True:
 		try:
 			driver.find_element_by_xpath('//a[starts-with(@href,"https://empowervoters.us/")]').click()
 			page = count + 1
-			print("#" + str(sessions) + ": 'voter empowerment' - Page ", page)
+			print("#" + str(sessions) + ": 'voter empowerment volunteer' - Page ", page)
 			scrollWebsite()
 			sessions += 1
 			time.sleep(5)
