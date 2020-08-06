@@ -21,7 +21,7 @@ while True:
 	driver.get('http://www.google.com')
 	driver.implicitly_wait(10)
 	search_field = driver.find_element_by_name("q")
-	search_field.send_keys("Asian Americans Vote")
+	search_field.send_keys("Asian Pacific Islander Vote Michigan")
 	search_field.submit()
 	driver.implicitly_wait(3)
 	while loop:
@@ -31,7 +31,7 @@ while True:
 			driver.find_element_by_xpath('//a[starts-with(@href,"www.apiavotemi.org")]').click()
 			driver.implicitly_wait(5)
 			page = count + 1
-			print("#" + str(sessions) + ": 'Asian Americans Vote' - Page ", page)
+			print("#" + str(sessions) + ": 'Asian Pacific Islander Vote Michigan' - Page ", page)
 			scrollWebsite(driver)
 			sessions += 1
 			time.sleep(20)
