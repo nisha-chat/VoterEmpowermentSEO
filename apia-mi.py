@@ -1,6 +1,6 @@
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
-from uujo_scroll import scrollWebsite
+from apiami_scroll import scrollWebsite
 import random
 import time
 
@@ -21,17 +21,23 @@ while True:
 	driver.get('http://www.google.com')
 	driver.implicitly_wait(10)
 	search_field = driver.find_element_by_name("q")
-	search_field.send_keys("Asian Pacific Islander Vote Michigan")
+	search_field.send_keys("Voter Empowerment Michigan")
+	#Asian Americans Vote Michigan
 	search_field.submit()
 	driver.implicitly_wait(3)
 	while loop:
 		print("Page: " + str(count+1))
 		try:
 			driver.implicitly_wait(15)
-			driver.find_element_by_xpath('//a[starts-with(@href,"www.apiavotemi.org")]').click()
+			#driver.find_element_by_xpath('//a[starts-with(@href,"https://www.apiavotemi.org/")]').click()
+			driver.find_element_by_xpath('//a[starts-with(@href,"https://www.apiavote.org/partner-organizations")]').click()
 			driver.implicitly_wait(5)
+			driver.find_element_by_link_text("APIAVote - Michigan").click()
 			page = count + 1
-			print("#" + str(sessions) + ": 'Asian Pacific Islander Vote Michigan' - Page ", page)
+			print("#" + str(sessions) + ": 'Voter Empowerment Michigan' - Page ", page)
+
+			driver.implicitly_wait(15)
+			print(driver.current_url)
 			scrollWebsite(driver)
 			sessions += 1
 			time.sleep(20)

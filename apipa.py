@@ -20,17 +20,18 @@ while True:
 	driver.get('http://www.google.com')
 	driver.implicitly_wait(10)
 	search_field = driver.find_element_by_name("q")
-	search_field.send_keys("asian pacific islander political alliance")
+	search_field.send_keys("Asian Pacific Islander Vote Pennsylvania")
 	search_field.submit()
 
 	driver.implicitly_wait(15)
-	driver.find_element_by_xpath('//a[starts-with(@href,"https://twitter.com/")]').click()
+	driver.find_element_by_xpath('//a[starts-with(@href,"https://www.facebook.com/apipennsylvania/?ref=py_c")]').click()
 	driver.implicitly_wait(5)
 
 	page = count + 1
-	print("#" + str(sessions) + ": 'asian pacific islander political alliance' - Page ", page)
+	print("#" + str(sessions) + ": 'Asian Pacific Islander Vote Pennsylvania' - Page ", page)
 
-	driver.find_element_by_xpath('//a[starts-with(@href,"https://t.co/bWbFNff0dx?amp=1")]').click()
+	#driver.find_element_by_xpath('//a[starts-with(@href,"http://apipennsylvania.org/")]').click()
+	driver.find_element_by_link_text('apipennsylvania.org').click()
 	driver.implicitly_wait(15)
 	driver.switch_to.window(driver.window_handles[1])
 	driver.implicitly_wait(5)
